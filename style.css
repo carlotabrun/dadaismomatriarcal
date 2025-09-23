@@ -129,6 +129,21 @@ nav img {
     font-style: italic;
 }
 
+/* --- Encabezado de Página (para subpáginas) --- */
+.page-title-header {
+    background-color: var(--rojo);
+    color: var(--blanco);
+    text-align: center;
+    padding: 2.5rem 2rem;
+    border-bottom: 2px solid var(--negro);
+}
+
+.page-title-header h1 {
+    font-size: 3.5rem;
+    text-shadow: 3px 3px 0 var(--negro);
+    margin: 0;
+}
+
 /* --- Sección Qué Es --- */
 #que-es p {
     margin-bottom: 1.5rem; /* Añade espacio debajo de cada párrafo */
@@ -195,35 +210,67 @@ nav img {
     background-color: var(--lila);
 }
 
+.obras-search-bar {
+    display: flex;
+    max-width: 500px;
+    margin: 0 auto 2rem;
+    border: 2px solid var(--negro);
+}
+
+.obras-search-bar input {
+    flex-grow: 1;
+    padding: 0.75rem;
+    border: none;
+    background-color: var(--blanco);
+    font-family: var(--font-texto);
+    font-size: 1rem;
+    border-right: 2px solid var(--negro);
+}
+
+.obras-search-bar input:focus {
+    outline: 2px solid var(--rojo);
+    background-color: var(--crema);
+}
+
+.obras-search-bar button {
+    padding: 0.75rem 1.5rem;
+    border: none;
+    background-color: var(--beige);
+    font-family: var(--font-titulo);
+    cursor: pointer;
+    text-transform: uppercase;
+    transition: background-color 0.2s, color 0.2s;
+}
+
+.obras-search-bar button:hover {
+    background-color: var(--rojo);
+    color: var(--blanco);
+}
+
 .obras-container {
-    /* Slick Carousel se encarga del layout. Añadimos padding para que las flechas no se superpongan. */
-    padding: 0 40px;
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: 1.5rem;
 }
 
 .obra-item {
-    /* Layout horizontal con imagen a la izquierda, alineado arriba */
-    display: flex !important;
-    flex-direction: row;
-    align-items: flex-start; /* Alinea los items en la parte superior */
-    gap: 1.5rem;
-    
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
     /* Estilos del contenedor */
-    margin: 0 0.5rem; /* Espacio entre los slides */
     padding: 1rem;
     border: 2px solid var(--negro);
     background-color: var(--crema);
 }
 
 .obra-item a {
-    flex-shrink: 0; /* Evita que la imagen se encoja si el texto es largo */
+    /* No specific styles needed here now */
 }
 
 .obra-item img {
-    /* Imagen con proporción original */
-    width: 200px;
-    height: auto;
-    max-height: 240px;
-    object-fit: contain;
+    width: 100%; /* Ocupa todo el ancho de la tarjeta */
+    height: 250px; /* Altura fija para uniformidad */
+    object-fit: cover; /* Cubre el área sin deformar la imagen */
     border: 2px solid var(--negro);
     display: block;
     transition: transform 0.2s ease;
@@ -234,7 +281,6 @@ nav img {
 }
 
 .obra-info {
-    padding: 0; /* El padding ya está en el contenedor padre .obra-item */
 }
 
 .obra-info h3 {
@@ -467,79 +513,6 @@ footer {
     background: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="48" height="96" viewBox="0 0 48 96" fill="none"><path d="M18 24L30 48L18 72" stroke="white" stroke-width="4"/></svg>') right 48% no-repeat !important;
 }
 
-/* --- Estilos para Slick Carousel --- */
-
-/* Flechas de navegación */
-.slick-prev, .slick-next {
-    width: 40px;
-    height: 40px;
-    z-index: 10;
-}
-
-.slick-prev:before, .slick-next:before {
-    font-family: 'Special Elite', monospace; /* Usamos una fuente del sitio */
-    font-size: 40px;
-    color: var(--negro);
-    opacity: 0.75;
-    transition: opacity 0.2s;
-}
-
-.slick-prev:hover:before, .slick-next:hover:before {
-    opacity: 1;
-}
-
-.slick-prev { left: 0; }
-.slick-next { right: 0; }
-
-/* Puntos de navegación (dots) */
-.slick-dots li button:before {
-    font-size: 12px;
-    color: var(--negro);
-    opacity: 0.5;
-}
-
-.slick-dots li.slick-active button:before {
-    color: var(--rojo);
-    opacity: 1;
-}
-
-/* Buscador en la cabecera */
-.search-bar-header {
-    display: flex;
-    justify-content: center;
-    margin: 1.5rem auto 0; /* Lo separamos de la navegación */
-    max-width: 400px; /* Un ancho máximo para que no sea gigante */
-    border: 2px solid var(--negro);
-}
-
-.search-bar-header input {
-    flex-grow: 1;
-    padding: 0.5rem;
-    border: none;
-    background-color: var(--blanco);
-    font-family: var(--font-texto);
-    font-size: 1rem;
-    border-right: none;
-}
-
-.search-bar-header input:focus {
-    outline: 2px solid var(--rojo);
-    background-color: var(--crema);
-}
-
-.search-bar-header button {
-    padding: 0.5rem 1rem;
-    border: none; /* El borde ya está en el contenedor */
-    background-color: var(--beige);
-    font-family: var(--font-titulo);
-    cursor: pointer;
-}
-
-.search-bar-header button:hover {
-    background-color: var(--rojo);
-    color: var(--blanco);
-}
-
 /* Encabezado de cada sección interna */
 .section-header {
     display: flex;
@@ -579,10 +552,6 @@ footer {
         text-align: center;
     }
 
-    .search-bar-header {
-        padding: 1rem 1rem 0;
-    }
-
     .artista-card {
         flex-direction: column;
         align-items: center;
@@ -596,10 +565,6 @@ footer {
 
     .artista-info li::before {
         display: none; /* Ocultamos el marcador en móvil para un look más limpio */
-    }
-
-    .obras-container {
-        flex-direction: column;
     }
 
     footer {
