@@ -1,16 +1,4 @@
 $(document).ready(function(){
-    // Inicializar Slick Carousel en la página de Obras
-    // Este código busca el contenedor del carrusel y, si lo encuentra, lo activa.
-    if ($('.obras-container').length) {
-      $('.obras-container').slick({
-        dots: true,
-        infinite: true,
-        speed: 300,
-        slidesToShow: 1,
-        adaptiveHeight: true
-      });
-    }
-  
     // Manejo del formulario de contacto
     // Este código intercepta el envío del formulario para mostrar un mensaje de confirmación
     // sin recargar la página.
