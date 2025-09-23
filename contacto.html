@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contacto - Dadaísmo Matriarcal</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Special+Elite&display=swap" rel="stylesheet">
+</head>
+<body>
+
+    <div class="container">
+
+        <header>
+            <nav>
+                <ul>
+                    <li>
+                        <a href="index.html">
+                            <img src="images/index.png" alt="Icono Inicio">
+                            <span>INICIO</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="que-es.html">
+                            <img src="images/quees.png" alt="Icono ¿Qué es?">
+                            <span>¿QUÉ ES?</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="artistas.html">
+                            <img src="images/artistas.png" alt="Icono Artistas">
+                            <span>ARTISTAS</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="obras.html">
+                            <img src="images/obras.png" alt="Icono Obras">
+                            <span>OBRAS</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="historia.html">
+                            <img src="images/historia.png" alt="Icono Historia">
+                            <span>HISTORIA</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="contacto.html" class="active">
+                            <img src="images/contact.png" alt="Icono Contacto">
+                            <span>CONTACTO</span>
+                        </a>
+                    </li>
+                </ul>
+            </nav>
+            <div class="search-bar-header">
+                <input type="search" placeholder="Buscar en el sitio...">
+                <button>IR</button>
+            </div>
+        </header>
+
+        <main>
+            <section id="contacto">
+                <div class="section-header">
+                    <h2><span class="icon-placeholder">✶</span> Contacto y Créditos</h2>
+                </div>
+                <div class="contacto-container">
+                    <div class="form-section">
+                        <h3>Formulario de Contacto</h3>
+                        <form action="#" method="post">
+                            <label for="nombre">Nombre:</label>
+                            <input type="text" id="nombre" name="nombre" required>
+
+                            <label for="email">Email:</label>
+                            <input type="email" id="email" name="email" required>
+
+                            <label for="mensaje">Mensaje:</label>
+                            <textarea id="mensaje" name="mensaje" rows="5" required></textarea>
+
+                            <button type="submit">Enviar Mensaje</button>
+                        </form>
+                    </div>
+                    <div class="creditos-section">
+                        <h3>Sobre este Proyecto</h3>
+                        <p>Este sitio web es un trabajo académico desarrollado en la Universidad de Palermo.</p>
+                        <p>El objetivo es visibilizar la obra de las mujeres en el movimiento dadá, muchas veces opacadas por sus pares masculinos.</p>
+                        <p>La idea rectora es el “Dadaísmo Matriarcal”: un recorte que celebra el caos, el matriarcado y la subversión como motores creativos.</p>
+                        <p>El sitio reúne fichas de artistas, análisis de obras y una mirada crítica sobre cómo estas creadoras expandieron los límites del arte.</p>
+                        <p>Más que un catálogo, es una propuesta visual que reinterpreta el espíritu dadá desde una perspectiva feminista contemporánea.</p>
+                        <p style="margin-top: 1.5rem;">
+                            <strong>Fuentes principales:</strong><br>
+                            <a href="https://www.artsy.net/" target="_blank" rel="noopener noreferrer">Artsy.net</a><br>
+                            <a href="https://www.moma.org/" target="_blank" rel="noopener noreferrer">MoMA</a>
+                        </p>
+                    </div>
+                </div>
+            </section>
+        </main>
+
+        <footer>
+            <p class="footer-left">2025 Dadaísmo Matriarcal ✶ Proyecto UP</p>
+            <p class="footer-right">Esto no es un pie de página.</p>
+        </footer>
+
+    </div> <!-- .container -->
+
+    <!-- Librerías JavaScript (jQuery es necesario para el formulario) -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js" integrity="sha512-894YE6QWD5I59HgZOGReFYm4dnWc1Qt5NtvYSaNcOP+u1T9qYdvdihz0PPSiiqn/+/3e7Jo4EaG7TubfWGUrMQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <!-- Nuestro script personalizado -->
+    <script src="js/main.js"></script>
+
+</body>
+</html>

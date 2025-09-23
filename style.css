@@ -1,0 +1,610 @@
+/* --- Paleta de Colores y Fuentes --- */
+:root {
+    --rojo: #ff3131;
+    --beige: #fadeb4;
+    --crema: #ffe9c9;
+    --lila: #e5b7f1;
+    --negro: #000000;
+    --blanco: #ffffff;
+
+    /* Para usar 'Stencil Std Bold' necesitarías comprar la licencia y cargarla con @font-face.
+       Como alternativa, usamos la familia 'Stencil' que es más común en sistemas operativos. */
+    --font-titulo: 'Stencil', 'Impact', sans-serif;
+    --font-texto: 'Special Elite', 'Courier New', Courier, monospace;
+}
+
+/* --- Estilos Generales --- */
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    background-color: var(--crema);
+    font-family: var(--font-texto);
+    color: var(--negro);
+    line-height: 1.6;
+}
+
+.container {
+    max-width: 1200px; /* Aumentado de 960px para que ocupe más espacio */
+    margin: 0 auto;
+    border-left: 2px solid var(--negro);
+    border-right: 2px solid var(--negro);
+    background-color: var(--blanco);
+}
+
+h1, h2, h3 {
+    font-family: var(--font-titulo);
+    line-height: 1.2;
+}
+
+h2 {
+    font-size: 2rem;
+    margin-bottom: 1rem;
+    border-bottom: 2px solid var(--negro);
+    padding-bottom: 0.5rem;
+}
+
+section {
+    padding: 2rem;
+    border-bottom: 2px solid var(--negro);
+}
+
+/* --- Encabezado y Navegación --- */
+header {
+    background-color: var(--beige);
+    border-bottom: 2px solid var(--negro);
+    padding: 1rem 0 1.5rem; /* Aumentamos el padding inferior para dar espacio al buscador */
+}
+
+nav ul {
+    list-style: none;
+    display: flex;
+    justify-content: center; /* Centramos los items para un look más ordenado */
+    align-items: center;
+    flex-wrap: wrap; /* Mantenemos el wrap para móviles */
+    gap: 0.5rem; /* Añadimos un espacio consistente entre botones */
+}
+
+nav a {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-decoration: none;
+    color: var(--negro);
+    font-family: var(--font-titulo);
+    padding: 0.5rem 1.5rem; /* Hacemos los botones más anchos que altos */
+    /* Efecto de botón 3D clásico de los 90s */
+    background-color: var(--crema);
+    border: 2px solid var(--negro);
+    border-color: var(--blanco) var(--negro) var(--negro) var(--blanco);
+}
+
+/* Efecto de botón "presionado" al pasar el mouse o hacer clic */
+nav a:hover, nav a:active {
+    background-color: var(--beige);
+    border-color: var(--negro) var(--blanco) var(--blanco) var(--negro);
+}
+
+/* Estilo para el botón de la página activa */
+nav a.active {
+    background-color: var(--lila);
+    border-color: var(--negro) var(--blanco) var(--blanco) var(--negro);
+}
+
+nav img {
+    width: 40px;
+    height: 40px;
+    object-fit: cover;
+    border: none; /* Eliminamos el borde negro del icono */
+    margin-bottom: 0.5rem;
+}
+
+/* --- Sección Hero (Inicio) --- */
+.hero-section {
+    background-color: var(--rojo);
+    color: var(--blanco);
+    text-align: center;
+    padding: 4rem 2rem;
+    /* Sobreescribimos el borde negro genérico con uno rojo y más grueso */
+    border-bottom: 100px solid var(--rojo);
+}
+
+.hero-section h1 {
+    font-size: 4.5rem;
+    text-shadow: 3px 3px 0 var(--negro);
+}
+
+.hero-quote {
+    margin-top: 2rem;
+    max-width: 600px;
+    margin-left: auto;
+    margin-right: auto;
+    font-style: italic;
+}
+
+/* --- Sección Qué Es --- */
+#que-es p {
+    margin-bottom: 1.5rem; /* Añade espacio debajo de cada párrafo */
+}
+
+/* Evita que el último párrafo añada espacio extra antes del borde de la sección */
+#que-es p:last-of-type {
+    margin-bottom: 0;
+}
+
+/* --- Sección Artistas --- */
+.artistas-container {
+    display: flex;
+    flex-direction: column;
+    gap: 3rem; /* Espacio entre cada tarjeta de artista */
+}
+
+.artista-card {
+    display: flex;
+    gap: 1.5rem;
+    align-items: flex-start;
+    background-color: var(--crema);
+    padding: 1.5rem;
+    border: 2px solid var(--negro);
+}
+
+.artista-card img {
+    width: 150px;
+    height: 150px;
+    object-fit: cover;
+    border: 2px solid var(--negro);
+    flex-shrink: 0; /* Evita que la imagen se encoja */
+}
+
+.artista-info h3 {
+    font-size: 1.75rem;
+    margin-bottom: 1rem;
+}
+
+.artista-info ul {
+    list-style: none; /* Quitamos los puntos por defecto */
+    padding-left: 0;
+}
+
+.artista-info li {
+    margin-bottom: 0.75rem;
+    padding-left: 1.5rem;
+    position: relative;
+}
+
+/* Usamos un pseudo-elemento para crear un marcador personalizado */
+.artista-info li::before {
+    content: '✶';
+    position: absolute;
+    left: 0;
+    top: 0;
+    color: var(--rojo);
+    font-family: 'Times New Roman', Times, serif;
+    font-weight: bold;
+}
+
+/* --- Sección Obras --- */
+#obras {
+    background-color: var(--lila);
+}
+
+.obras-container {
+    /* Slick Carousel se encarga del layout. Añadimos padding para que las flechas no se superpongan. */
+    padding: 0 40px;
+}
+
+.obra-item {
+    /* Layout horizontal con imagen a la izquierda, alineado arriba */
+    display: flex !important;
+    flex-direction: row;
+    align-items: flex-start; /* Alinea los items en la parte superior */
+    gap: 1.5rem;
+    
+    /* Estilos del contenedor */
+    margin: 0 0.5rem; /* Espacio entre los slides */
+    padding: 1rem;
+    border: 2px solid var(--negro);
+    background-color: var(--crema);
+}
+
+.obra-item a {
+    flex-shrink: 0; /* Evita que la imagen se encoja si el texto es largo */
+}
+
+.obra-item img {
+    /* Imagen con proporción original */
+    width: 200px;
+    height: auto;
+    max-height: 240px;
+    object-fit: contain;
+    border: 2px solid var(--negro);
+    display: block;
+    transition: transform 0.2s ease;
+}
+
+.obra-item a:hover img {
+    transform: scale(1.05);
+}
+
+.obra-info {
+    padding: 0; /* El padding ya está en el contenedor padre .obra-item */
+}
+
+.obra-info h3 {
+    font-size: 1.5rem;
+    margin-bottom: 0.5rem;
+}
+
+.obra-info blockquote {
+    font-style: italic;
+    border-left: 4px solid var(--negro);
+    padding-left: 1rem;
+    margin-top: 1rem;
+}
+
+/* Descripción especial para items que la necesiten */
+.obra-item .obra-descripcion {
+    font-size: 0.9rem;
+    line-height: 1.4;
+    margin-top: 0.75rem;
+}
+
+/* --- Sección Historia --- */
+.historia-secciones {
+    display: flex;
+    flex-direction: column;
+    gap: 2.5rem; /* Espacio entre secciones de la historia */
+}
+
+.historia-seccion {
+    background-color: var(--beige);
+    border: 2px solid var(--negro);
+    padding: 1.5rem;
+}
+
+.historia-seccion h3 {
+    font-size: 1.75rem;
+    margin-bottom: 1.5rem;
+    padding-bottom: 0.75rem;
+    border-bottom: 2px solid var(--negro);
+}
+
+.historia-seccion ul {
+    list-style: none;
+    padding-left: 0;
+}
+
+.historia-seccion li {
+    margin-bottom: 0.75rem;
+    padding-left: 1.5rem;
+    position: relative;
+}
+
+.historia-seccion li::before {
+    content: '✶';
+    position: absolute;
+    left: 0;
+    top: 2px;
+    color: var(--rojo);
+    font-family: 'Times New Roman', Times, serif;
+    font-weight: bold;
+}
+
+/* --- Sección Contacto --- */
+#contacto {
+    background-color: var(--beige);
+}
+
+.contacto-container {
+    display: flex;
+    gap: 2rem;
+    flex-wrap: wrap;
+}
+
+.form-section, .creditos-section {
+    flex: 1;
+    min-width: 300px; /* Ensures they wrap on smaller screens */
+    background-color: var(--crema);
+    padding: 1.5rem;
+    border: 2px solid var(--negro);
+}
+
+.form-section h3, .creditos-section h3 {
+    font-size: 1.75rem;
+    margin-bottom: 1.5rem;
+    padding-bottom: 0.75rem;
+    border-bottom: 2px solid var(--negro);
+}
+
+.form-section label {
+    display: block;
+    margin-top: 1.25rem;
+    margin-bottom: 0.5rem;
+    font-family: var(--font-titulo);
+    font-size: 1.1rem;
+}
+
+.form-section label:first-of-type {
+    margin-top: 0;
+}
+
+.form-section input[type="text"],
+.form-section input[type="email"],
+.form-section textarea {
+    width: 100%;
+    padding: 0.75rem;
+    border: 2px solid var(--negro);
+    background-color: var(--blanco);
+    font-family: var(--font-texto);
+    font-size: 1rem;
+}
+
+.form-section input[type="text"]:focus,
+.form-section input[type="email"]:focus,
+.form-section textarea:focus {
+    outline: 2px solid var(--rojo);
+    background-color: var(--crema);
+}
+
+.form-section textarea {
+    resize: vertical;
+    min-height: 120px;
+}
+
+.form-section button[type="submit"] {
+    margin-top: 1.5rem;
+    padding: 0.75rem 1.5rem;
+    font-family: var(--font-titulo);
+    font-size: 1rem;
+    color: var(--negro);
+    cursor: pointer;
+    text-transform: uppercase;
+    background-color: var(--crema);
+    border: 2px solid var(--negro);
+    border-color: var(--blanco) var(--negro) var(--negro) var(--blanco);
+    transition: background-color 0.2s, border-color 0.2s;
+}
+
+.form-section button[type="submit"]:hover,
+.form-section button[type="submit"]:active {
+    background-color: var(--beige);
+    border-color: var(--negro) var(--blanco) var(--blanco) var(--negro);
+}
+
+.creditos-section a {
+    color: var(--negro);
+    text-decoration: underline;
+    transition: color 0.2s;
+}
+
+.creditos-section a:hover {
+    color: var(--rojo);
+}
+
+/* --- Footer --- */
+footer {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1.5rem 2rem;
+    background-color: var(--beige);
+    border-top: 2px solid var(--negro);
+}
+
+/* --- Estilos para Lightbox --- */
+
+/* Fondo de overlay */
+.lightboxOverlay {
+    background-color: rgba(250, 222, 180, 0.95) !important; /* Beige con opacidad */
+}
+
+/* Mantener proporción original de la imagen */
+.lb-image {
+    max-width: 90% !important; 
+    max-height: 75vh !important; /* Un poco menos de altura para dar más espacio a la info */
+    width: auto !important;
+    height: auto !important;
+    object-fit: contain !important;
+    border: 2px solid var(--negro);
+    border-bottom: none; /* El borde inferior lo tendrá la caja de info */
+    border-radius: 6px 6px 0 0;
+}
+
+/* Caja de info con fondo semi-transparente */
+.lb-dataContainer {
+    background: var(--crema) !important; /* Usamos el color crema del sitio */
+    border-right: 2px solid var(--negro) !important;
+    border-bottom: 2px solid var(--negro) !important;
+    border-left: 2px solid var(--negro) !important;
+    border-radius: 0 0 6px 6px; /* Redondeamos las esquinas inferiores */
+    padding: 1rem;
+    box-sizing: border-box !important;
+}
+
+/* Texto de info */
+.lb-data .lb-caption,
+.lb-data .lb-number {
+    font-family: var(--font-texto) !important;
+    color: var(--negro) !important;
+    text-shadow: none !important;
+    opacity: 1 !important;
+}
+
+.lb-data .lb-caption {
+    font-size: 1rem;
+    font-weight: normal;
+    line-height: 1.4;
+    padding-bottom: 10px;
+}
+
+/* Botón de cerrar (X) */
+.lb-close {
+    top: 15px !important;
+    right: 15px !important;
+    width: 40px;
+    height: 40px;
+    background: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="black" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line></svg>') center center no-repeat !important;
+    opacity: 0.9;
+}
+
+.lb-close:hover {
+    opacity: 1;
+    background: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="%23ff3131" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line></svg>') center center no-repeat !important; /* Rojo al pasar el mouse */
+}
+
+/* Flechas de navegación de Lightbox */
+.lb-nav a.lb-prev {
+    background: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="48" height="96" viewBox="0 0 48 96" fill="none"><path d="M30 72L18 48L30 24" stroke="white" stroke-width="4"/></svg>') left 48% no-repeat !important;
+}
+.lb-nav a.lb-next {
+    background: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="48" height="96" viewBox="0 0 48 96" fill="none"><path d="M18 24L30 48L18 72" stroke="white" stroke-width="4"/></svg>') right 48% no-repeat !important;
+}
+
+/* --- Estilos para Slick Carousel --- */
+
+/* Flechas de navegación */
+.slick-prev, .slick-next {
+    width: 40px;
+    height: 40px;
+    z-index: 10;
+}
+
+.slick-prev:before, .slick-next:before {
+    font-family: 'Special Elite', monospace; /* Usamos una fuente del sitio */
+    font-size: 40px;
+    color: var(--negro);
+    opacity: 0.75;
+    transition: opacity 0.2s;
+}
+
+.slick-prev:hover:before, .slick-next:hover:before {
+    opacity: 1;
+}
+
+.slick-prev { left: 0; }
+.slick-next { right: 0; }
+
+/* Puntos de navegación (dots) */
+.slick-dots li button:before {
+    font-size: 12px;
+    color: var(--negro);
+    opacity: 0.5;
+}
+
+.slick-dots li.slick-active button:before {
+    color: var(--rojo);
+    opacity: 1;
+}
+
+/* Buscador en la cabecera */
+.search-bar-header {
+    display: flex;
+    justify-content: center;
+    margin: 1.5rem auto 0; /* Lo separamos de la navegación */
+    max-width: 400px; /* Un ancho máximo para que no sea gigante */
+    border: 2px solid var(--negro);
+}
+
+.search-bar-header input {
+    flex-grow: 1;
+    padding: 0.5rem;
+    border: none;
+    background-color: var(--blanco);
+    font-family: var(--font-texto);
+    font-size: 1rem;
+    border-right: none;
+}
+
+.search-bar-header input:focus {
+    outline: 2px solid var(--rojo);
+    background-color: var(--crema);
+}
+
+.search-bar-header button {
+    padding: 0.5rem 1rem;
+    border: none; /* El borde ya está en el contenedor */
+    background-color: var(--beige);
+    font-family: var(--font-titulo);
+    cursor: pointer;
+}
+
+.search-bar-header button:hover {
+    background-color: var(--rojo);
+    color: var(--blanco);
+}
+
+/* Encabezado de cada sección interna */
+.section-header {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    padding-bottom: 1rem;
+    margin-bottom: 2rem;
+    border-bottom: 2px solid var(--negro);
+}
+
+.section-header h2 {
+    margin-bottom: 0;
+    border-bottom: none;
+    padding-bottom: 0;
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+}
+
+.icon-placeholder {
+    font-size: 1.5rem;
+    font-family: 'Times New Roman', Times, serif;
+}
+
+/* --- Diseño Responsivo --- */
+@media (max-width: 768px) {
+    .hero-section h1 {
+        font-size: 3rem;
+    }
+
+    nav ul {
+        flex-wrap: wrap;
+    }
+
+    nav li {
+        width: 33.33%;
+        text-align: center;
+    }
+
+    .search-bar-header {
+        padding: 1rem 1rem 0;
+    }
+
+    .artista-card {
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+    }
+
+    .artista-info li {
+        padding-left: 0;
+        text-align: left; /* Mantenemos el texto de la lista alineado a la izquierda */
+    }
+
+    .artista-info li::before {
+        display: none; /* Ocultamos el marcador en móvil para un look más limpio */
+    }
+
+    .obras-container {
+        flex-direction: column;
+    }
+
+    footer {
+        flex-direction: column;
+        text-align: center;
+        gap: 0.5rem;
+    }
+}
