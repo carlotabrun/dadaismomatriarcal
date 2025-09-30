@@ -145,6 +145,9 @@ nav img {
 }
 
 /* --- Sección Qué Es --- */
+#que-es {
+    background-color: var(--lila);
+}
 #que-es p {
     margin-bottom: 1.5rem; /* Añade espacio debajo de cada párrafo */
 }
@@ -155,6 +158,9 @@ nav img {
 }
 
 /* --- Sección Artistas --- */
+#artistas {
+    background-color: var(--lila);
+}
 .artistas-container {
     display: flex;
     flex-direction: column;
@@ -303,6 +309,9 @@ nav img {
 }
 
 /* --- Sección Historia --- */
+#historia {
+    background-color: var(--lila);
+}
 .historia-secciones {
     display: flex;
     flex-direction: column;
@@ -345,7 +354,7 @@ nav img {
 
 /* --- Sección Contacto --- */
 #contacto {
-    background-color: var(--beige);
+    background-color: var(--lila);
 }
 
 .contacto-container {
